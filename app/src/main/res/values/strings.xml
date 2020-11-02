@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MEMAnalyzer</string>
+    <string name="definition">  MEMAnalyzer - a questionnaire that determines your sense of humor</string>
+    <string name="description">  Sometimes it makes sense to apply subtle and indirect approaches to testing personal qualities. One of these methods is to study a persons reaction to various types of jokes. Psychoanalysts have long agreed that humor is a kind of window into the "inner recesses" of consciousness, and psychologists in their research have confirmed the existence of a real connection between what kind of humor a person likes and his personality type.</string>
+    <string name="button_start">start</string>
+    <string name="button_signIn">sign in</string>
+</resources>
