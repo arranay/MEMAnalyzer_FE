@@ -5,11 +5,25 @@
     <string name="button_start">start</string>
     <string name="button_signIn">sign in</string>
     <string name="button_exit">exit</string>
-    <string name="thirty_second">thirty seconds left</string>
+    <string name="thirty_second">Thirty seconds left</string>
+    <string name="one_minute">One minute left</string>
     <string name="very_fun">It is very funny</string>
     <string name="pretty_fun">It is very funny</string>
     <string name="little_fun">Little bit of fun</string>
     <string name="so_so">So so</string>
     <string name="not_fun">Not funny at all</string>
     <string name="finish">finish</string>
+    <string name="category_everyday_life">Everyday life</string>
+    <string name="category_conservative">Conservative</string>
+    <string name="category_popularity">Popularity</string>
+    <string name="category_meaninglessness">Meaninglessness</string>
+    <string name="category_intelligence">Intelligence</string>
+    <string name="description_of_all_categories">Description of all categories</string>
+    <string name="all_categories">\n\n
+        Everyday life\n\nYou prefer a stable and calm lifestyle, everyday life does not disgust you. You strongly appreciate material well-being and support the standard foundations of society such as the institution of the family or a religion typical for the region of residence. You can be a good friend and an important member of the company. Most likely your character, habits and manners were laid down for you from childhood by your parents.\n\n
+        Conservative\n\nYou are a person who respects established things and events, you have a negative attitude towards any innovations and you are afraid of changes in your lifestyle. You are uncomfortable in a new company and make new acquaintances. You try to hold on to people you have known for a long time, respect the archaic foundations of society, focus on opinions of more experienced people and always know exactly what you want. You do not get bored with old, familiar actions and things.\n\n
+        Popularity\n\nYou are a person open to innovations, new trends and customs, you quickly adapt to changes in your life and enjoy it. You like to make new acquaintances and you will always find how to keep up a conversation with the company. Your opinion can often change and depend on the person who is authoritative for you. Attention and material condition in life are very important to you.\n\n
+        Meaninglessness\n\nYou have a non-standard mindset, most likely you consider a few acquaintances as your friends. You prefer calmness and solitude to noisy companies. You tend to notice in other people what the majority does not notice in them, as well as to face misunderstanding on the part of the majority. You are engaged in and are interested in one business for a long time and you do not really care about what people think about you.\n\n
+        Intelligence\n\nYou are a rather intelligent, sensible person who tends to consider yourself smarter than many others. Most likely, your main activity is associated with mental stress, you like solving problems by finding a logical way to solve them. You prefer to deeply understand the issues that interest you and make acquaintances according to a common circle of interests. Material values in life do not play a key role for you.
+    </string>
 </resources>
