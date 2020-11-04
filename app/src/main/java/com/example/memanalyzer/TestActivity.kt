@@ -1,5 +1,6 @@
 package com.example.memanalyzer
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.Gravity
@@ -18,6 +19,12 @@ class TestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
         timer()
+
+        finish.setOnClickListener {
+            val intent = Intent(this, TestResultActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun timer() {
@@ -29,12 +36,12 @@ class TestActivity : AppCompatActivity() {
 
             if (elapsedMillis >= 0) timer.stop()
             if (elapsedMillis/1000 == -30.toLong()) {
-                val toast = Toast.makeText(this, "Thirty seconds left", Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(this, this.getString(R.string.thirty_second), Toast.LENGTH_SHORT)
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show()
             }
             if (elapsedMillis/1000 == -60.toLong()) {
-                val toast = Toast.makeText(this, "One minute left", Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(this, this.getString(R.string.one_minute), Toast.LENGTH_SHORT)
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show()
             }
