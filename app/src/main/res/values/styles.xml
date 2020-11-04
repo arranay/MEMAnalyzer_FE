@@ -31,6 +31,21 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
+    <style name="Widget.MEMAnalyzer.Button.FloatingActionButton">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="backgroundTint">#FFFFFF</item>
+        <item name="fabSize">auto</item>
+        <item name="elevation">@dimen/design_fab_elevation</item>
+        <item name="hoveredFocusedTranslationZ">@dimen/design_fab_translation_z_hovered_focused</item>
+        <item name="pressedTranslationZ">@dimen/design_fab_translation_z_pressed</item>
+        <item name="rippleColor">@color/colorPrimary</item>
+        <item name="borderWidth">@dimen/design_fab_border_width</item>
+        <item name="maxImageSize">@dimen/design_fab_image_size</item>
+        <item name="showMotionSpec">@animator/design_fab_show_motion_spec</item>
+        <item name="hideMotionSpec">@animator/design_fab_hide_motion_spec</item>
+    </style>
+
     <style name="TextAppearance.MEMAnalyzer.Title" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
