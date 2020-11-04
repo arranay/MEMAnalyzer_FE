@@ -4,4 +4,12 @@
     <string name="description">  Sometimes it makes sense to apply subtle and indirect approaches to testing personal qualities. One of these methods is to study a persons reaction to various types of jokes. Psychoanalysts have long agreed that humor is a kind of window into the "inner recesses" of consciousness, and psychologists in their research have confirmed the existence of a real connection between what kind of humor a person likes and his personality type.</string>
     <string name="button_start">start</string>
     <string name="button_signIn">sign in</string>
+    <string name="button_exit">exit</string>
+    <string name="thirty_second">thirty seconds left</string>
+    <string name="very_fun">It is very funny</string>
+    <string name="pretty_fun">It is very funny</string>
+    <string name="little_fun">Little bit of fun</string>
+    <string name="so_so">So so</string>
+    <string name="not_fun">Not funny at all</string>
+    <string name="finish">finish</string>
 </resources>

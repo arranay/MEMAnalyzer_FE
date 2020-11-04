@@ -3,20 +3,20 @@ package com.example.memanalyzer
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import android.os.Handler
 
-class MainActivity : AppCompatActivity() {
+class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         supportActionBar?.hide()
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_splash_screen)
 
-        start_button.setOnClickListener {
-            val intent = Intent(this, TestActivity::class.java)
+        Handler().postDelayed({
+            intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }
+        }, 1000)
     }
 }
