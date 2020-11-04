@@ -2,6 +2,7 @@ package com.example.memanalyzer
 
 import android.os.Bundle
 import android.os.SystemClock
+import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_test.*
@@ -29,10 +30,12 @@ class TestActivity : AppCompatActivity() {
             if (elapsedMillis >= 0) timer.stop()
             if (elapsedMillis/1000 == -30.toLong()) {
                 val toast = Toast.makeText(this, "Thirty seconds left", Toast.LENGTH_SHORT)
+                toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show()
             }
             if (elapsedMillis/1000 == -60.toLong()) {
                 val toast = Toast.makeText(this, "One minute left", Toast.LENGTH_SHORT)
+                toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show()
             }
         }
