@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.memanalyzer.model.Img
 import com.example.memanalyzer.model.Question
 import com.example.memanalyzer.service.AllMemesApi
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_test.*
 import retrofit2.Call
@@ -22,14 +23,14 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.collections.ArrayList
 
-
 class TestActivity : AppCompatActivity() {
     var numberOfQuestions: Int = 0
     var currentQuestion: Int = 0
     var questions: ArrayList<Question> = ArrayList()
+    var ms = 10000
 
     val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/Memes/")
+        .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
@@ -39,7 +40,6 @@ class TestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
 
-        progressBar.setVisibility(ProgressBar.VISIBLE)
         getAllMems()
 
         finish.setOnClickListener {
@@ -97,6 +97,7 @@ class TestActivity : AppCompatActivity() {
                 timer()
                 currentQuestion = 1
                 setQuestion()
+
                 progressBar.setVisibility(ProgressBar.INVISIBLE)
                 content.setVisibility(ProgressBar.VISIBLE)
             }
@@ -108,12 +109,26 @@ class TestActivity : AppCompatActivity() {
 
     fun timer() {
         timer.isCountDown = true
-        timer.base = SystemClock.elapsedRealtime() + numberOfQuestions * 30000
+        timer.base = SystemClock.elapsedRealtime() + numberOfQuestions * ms
         timer.start()
         timer.setOnChronometerTickListener {
             val elapsedMillis = SystemClock.elapsedRealtime() - timer.base
 
-            if (elapsedMillis >= 0) timer.stop()
+            if (elapsedMillis >= 0) {
+                timer.stop()
+                MaterialAlertDialogBuilder(this)
+                    .setTitle(resources.getString(R.string.time_expired))
+                    .setNeutralButton(resources.getString(R.string.button_exit)) { dialog, which ->
+                        finish()
+                    }
+                    .setPositiveButton(resources.getString(R.string.button_restart))  { dialog, which ->
+                        currentQuestion = 1;
+                        questions.forEach { it.choice = 0 }
+                        setQuestion()
+                        timer()
+                    }
+                    .show()
+            }
             if (elapsedMillis/1000 == -30.toLong()) {
                 val toast = Toast.makeText(this, this.getString(R.string.thirty_second), Toast.LENGTH_SHORT)
                 toast.setGravity(Gravity.CENTER, 0, 0);
