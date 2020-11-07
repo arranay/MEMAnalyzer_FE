@@ -8,7 +8,7 @@
     <string name="thirty_second">Thirty seconds left</string>
     <string name="one_minute">One minute left</string>
     <string name="very_fun">It is very funny</string>
-    <string name="pretty_fun">It is very funny</string>
+    <string name="pretty_fun">It is pretty funny</string>
     <string name="little_fun">Little bit of fun</string>
     <string name="so_so">So so</string>
     <string name="not_fun">Not funny at all</string>
@@ -29,4 +29,5 @@
     <string name="exit_msg">Do you want to exit?</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
+    <string name="not_answer_all">You did not answer all the questions</string>
 </resources>

@@ -1,20 +1,25 @@
 package com.example.memanalyzer
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import androidx.core.graphics.drawable.toDrawable
-import com.google.android.material.button.MaterialButton
+import androidx.appcompat.app.AppCompatActivity
+import com.example.memanalyzer.model.Question
 import kotlinx.android.synthetic.main.activity_test_result.*
 
 class TestResultActivity : AppCompatActivity() {
     var button_status = Status.UP
+    lateinit var ids: LongArray
+    lateinit var choice: IntArray
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_result)
+
+        val arguments = intent.extras
+        ids = arguments!!.get("ids") as LongArray
+        choice = arguments!!.get("choice") as IntArray
+
         ShowAllCategoryButton()
     }
 
