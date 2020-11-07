@@ -3,6 +3,7 @@
     <string name="definition">  MEMAnalyzer - a questionnaire that determines your sense of humor</string>
     <string name="description">  Sometimes it makes sense to apply subtle and indirect approaches to testing personal qualities. One of these methods is to study a persons reaction to various types of jokes. Psychoanalysts have long agreed that humor is a kind of window into the "inner recesses" of consciousness, and psychologists in their research have confirmed the existence of a real connection between what kind of humor a person likes and his personality type.</string>
     <string name="button_start">start</string>
+    <string name="button_restart">restart</string>
     <string name="button_signIn">sign in</string>
     <string name="button_exit">exit</string>
     <string name="thirty_second">Thirty seconds left</string>
@@ -30,4 +31,5 @@
     <string name="yes">yes</string>
     <string name="no">no</string>
     <string name="not_answer_all">You did not answer all the questions</string>
+    <string name="time_expired">Testing time expired.You can start the test over</string>
 </resources>
