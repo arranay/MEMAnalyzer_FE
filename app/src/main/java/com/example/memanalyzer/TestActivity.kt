@@ -27,7 +27,7 @@ class TestActivity : AppCompatActivity() {
     var numberOfQuestions: Int = 0
     var currentQuestion: Int = 0
     var questions: ArrayList<Question> = ArrayList()
-    var ms = 10000
+    var ms = 20000
 
     val retrofit: Retrofit? = Retrofit.Builder()
         .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/")
