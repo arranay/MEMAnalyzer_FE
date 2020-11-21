@@ -20,6 +20,11 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
+        logIn.setOnClickListener {
+            val intent = Intent(this, AuthorizationActivity::class.java)
+            startActivity(intent)
+        }
+
         exit_button.setOnClickListener {
             MaterialAlertDialogBuilder(this)
                 .setTitle(resources.getString(R.string.exit_msg))

@@ -23,12 +23,20 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="backgroundTint">?attr/colorPrimaryDark</item>
         <item name="android:stateListAnimator" tools:ignore="NewApi">
-            @animator/shr_next_button_state_list_anim
-        </item>
+        @animator/shr_next_button_state_list_anim
+    </item>
     </style>
 
     <style name="Widget.MEMAnalyzer.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Widget.MEMAnalyzer.Button.ImgButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:width">5dp</item>
+        <item name="paddingEnd">0sp</item>
+        <item name="iconTint">#000000</item>
+        <item name="android:paddingRight">0sp</item>
     </style>
 
     <style name="Widget.MEMAnalyzer.Button.FloatingActionButton">

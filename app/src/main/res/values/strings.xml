@@ -32,4 +32,8 @@
     <string name="no">no</string>
     <string name="not_answer_all">You did not answer all the questions</string>
     <string name="time_expired">Testing time expired.You can start the test over</string>
+    <string name="login">login</string>
+    <string name="testing_rules">
+        The test consists of 32 drawings selected from the Internet. The task is as follows: view all the drawings in order of their order and quickly decide on each of them how funny you think it is. Drawings should be evaluated on a 5-point scale.\n\nYou can start the test after downloading.\n\n
+    </string>
 </resources>
