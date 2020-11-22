@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_account.*
 import kotlinx.android.synthetic.main.activity_account.conservative
 import kotlinx.android.synthetic.main.activity_account.description
@@ -34,6 +35,20 @@ class AccountActivity : AppCompatActivity() {
             val intent = Intent(this, TestActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        exit.setOnClickListener {
+            MaterialAlertDialogBuilder(this)
+                .setTitle(resources.getString(R.string.unlogin))
+                .setNeutralButton(resources.getString(R.string.no), null)
+                .setPositiveButton(resources.getString(R.string.yes))  { dialog, which ->
+                    sharedPreference.edit().clear().apply()
+
+                    intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                .show()
         }
     }
 

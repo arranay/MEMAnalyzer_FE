@@ -6,6 +6,7 @@ import com.example.memanalyzer.model.Result
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface AllMemesApi {
@@ -14,6 +15,6 @@ interface AllMemesApi {
     fun getAllMemes(): Call<List<Img>>
 
     @POST("Memes/Result")
-    fun getResult(@Body answers: List<Answers>): Call<Result>
+    fun getResult(@Body answers: List<Answers>, @Header("Authorization") token: String): Call<Result>
 
 }

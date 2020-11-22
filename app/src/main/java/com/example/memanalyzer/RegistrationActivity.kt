@@ -1,7 +1,9 @@
 package com.example.memanalyzer
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -20,6 +22,7 @@ import java.util.*
 
 class RegistrationActivity : AppCompatActivity() {
 
+    lateinit var sharedPreference: SharedPreferences
     val retrofit: Retrofit? = Retrofit.Builder()
         .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/")
         .addConverterFactory(GsonConverterFactory.create())
@@ -28,6 +31,8 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+
+        sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
 
         sign_up.setOnClickListener {
             checkEmptiness()
@@ -58,7 +63,7 @@ class RegistrationActivity : AppCompatActivity() {
             val day = c.get(Calendar.DAY_OF_MONTH)
 
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                date.setText("$year-$monthOfYear-$dayOfMonth")
+                date.setText("$dayOfMonth.$monthOfYear.$year")
             }, year, month, day)
 
             dpd.show()
@@ -121,6 +126,23 @@ class RegistrationActivity : AppCompatActivity() {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.isSuccessful) {
                     var user = response.body()
+
+                    var editor = sharedPreference.edit()
+                    editor.putString("userName",user!!.userName)
+                    editor.putString("fullName",user.fullName)
+                    editor.putString("email",user.email)
+                    editor.putString("token",user.token)
+                    editor.putString("dateOfBirth",user.dateOfBirth)
+                    editor.putBoolean("gender", user.gender)
+
+                    editor.putString("statement", if (user.result !== null) user.result?.statement else "")
+                    editor.putFloat("conservative", if (user.result !== null) user.result?.conservative!! else 0f)
+                    editor.putFloat("domestic", if (user.result !== null) user.result?.domestic!! else 0f)
+                    editor.putFloat("intellectual", if (user.result !== null) user.result?.intellectual!! else 0f)
+                    editor.putFloat("pointless", if (user.result !== null) user.result?.pointless!! else 0f)
+                    editor.putFloat("popular", if (user.result !== null) user.result?.popular!! else 0f)
+
+                    editor.commit()
 
                     val intent = Intent(this@RegistrationActivity, AccountActivity::class.java)
                     startActivity(intent)

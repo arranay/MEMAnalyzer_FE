@@ -66,5 +66,8 @@
     <string name="edit">Edit profile</string>
     <string name="save">Save</string>
     <string name="start_test">start test</string>
+    <string name="all_users">Users</string>
+    <string name="statistics">Statistics</string>
     <string name="not_test">You do not have any test results yet. Please start the test</string>
+    <string name="unlogin">Are you sure you want to exit the account?</string>
 </resources>

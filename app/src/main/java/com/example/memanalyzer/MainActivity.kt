@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         logIn.setOnClickListener {
             val intent = Intent(this, AuthorizationActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         exit_button.setOnClickListener {

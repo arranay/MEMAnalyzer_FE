@@ -29,6 +29,7 @@ class TestResultActivity : AppCompatActivity() {
     var answers: ArrayList<Answers> = ArrayList()
 
     lateinit var sharedPreference: SharedPreferences
+    var token: String = ""
 
     val retrofit: Retrofit? = Retrofit.Builder()
         .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/")
@@ -42,10 +43,10 @@ class TestResultActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test_result)
 
         sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
-        var sh = sharedPreference.getString("token", "")
         if (sharedPreference.getString("token", "") !== "") {
             go_to_account.visibility = Button.VISIBLE
             logIn.visibility = Button.INVISIBLE
+            token = sharedPreference.getString("token", "").toString()
 
             go_to_account.setOnClickListener {
                 val intent = Intent(this, AccountActivity::class.java)
@@ -100,7 +101,7 @@ class TestResultActivity : AppCompatActivity() {
 
     fun getResult() {
         val memesApi: AllMemesApi = retrofit!!.create(AllMemesApi::class.java)
-        val call: Call<Result> = memesApi.getResult(answers)
+        val call: Call<Result> = memesApi.getResult(answers, token)
 
         call.enqueue(object : Callback<Result> {
             override fun onResponse(call: Call<Result>, response: Response<Result>) {
@@ -111,6 +112,17 @@ class TestResultActivity : AppCompatActivity() {
                 popularity.setText(round(testResult.popular))
                 meaninglessness.setText(round(testResult.pointless))
                 everyday_life.setText(round(testResult.domestic))
+
+                if (token != "") {
+                    var editor = sharedPreference.edit()
+                    editor.putString("statement", testResult!!.statement)
+                    editor.putFloat("conservative", testResult.conservative)
+                    editor.putFloat("domestic", testResult.domestic)
+                    editor.putFloat("intellectual", testResult.intellectual)
+                    editor.putFloat("pointless", testResult.pointless)
+                    editor.putFloat("popular", testResult.popular)
+                    editor.commit()
+                }
 
                 result.setVisibility(ProgressBar.VISIBLE)
                 progress.setVisibility(ProgressBar.INVISIBLE)
