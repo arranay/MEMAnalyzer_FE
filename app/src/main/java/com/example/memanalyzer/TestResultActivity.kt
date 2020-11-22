@@ -101,7 +101,7 @@ class TestResultActivity : AppCompatActivity() {
 
     fun getResult() {
         val memesApi: AllMemesApi = retrofit!!.create(AllMemesApi::class.java)
-        val call: Call<Result> = memesApi.getResult(answers, token)
+        val call: Call<Result> = memesApi.getResult(answers, "Bearer $token")
 
         call.enqueue(object : Callback<Result> {
             override fun onResponse(call: Call<Result>, response: Response<Result>) {
