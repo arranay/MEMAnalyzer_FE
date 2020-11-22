@@ -25,15 +25,40 @@
         Conservative\n\nYou are a person who respects established things and events, you have a negative attitude towards any innovations and you are afraid of changes in your lifestyle. You are uncomfortable in a new company and make new acquaintances. You try to hold on to people you have known for a long time, respect the archaic foundations of society, focus on opinions of more experienced people and always know exactly what you want. You do not get bored with old, familiar actions and things.\n\n
         Popularity\n\nYou are a person open to innovations, new trends and customs, you quickly adapt to changes in your life and enjoy it. You like to make new acquaintances and you will always find how to keep up a conversation with the company. Your opinion can often change and depend on the person who is authoritative for you. Attention and material condition in life are very important to you.\n\n
         Meaninglessness\n\nYou have a non-standard mindset, most likely you consider a few acquaintances as your friends. You prefer calmness and solitude to noisy companies. You tend to notice in other people what the majority does not notice in them, as well as to face misunderstanding on the part of the majority. You are engaged in and are interested in one business for a long time and you do not really care about what people think about you.\n\n
-        Intelligence\n\nYou are a rather intelligent, sensible person who tends to consider yourself smarter than many others. Most likely, your main activity is associated with mental stress, you like solving problems by finding a logical way to solve them. You prefer to deeply understand the issues that interest you and make acquaintances according to a common circle of interests. Material values in life do not play a key role for you.
+        Intelligence\n\nYou are a rather intelligent, sensible person who tends to consider yourself smarter than many others. Most likely, your main activity is associated with mental stress, you like solving problems by finding a logical way to solve them. You prefer to deeply understand the issues that interest you and make acquaintances according to a common circle of interests. Material values in life do not play a key role for you.\n\n
     </string>
     <string name="exit_msg">Do you want to exit?</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
     <string name="not_answer_all">You did not answer all the questions</string>
     <string name="time_expired">Testing time expired.You can start the test over</string>
-    <string name="login">login</string>
+    <string name="login">Login</string>
+    <string name="login_reg">Login*</string>
+    <string name="full_name">Full name*</string>
+    <string name="email">E-mail*</string>
+    <string name="dateOfBirth">Date of birth*</string>
+    <string name="Gender">Gender*</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="password">Password</string>
+    <string name="password_reg">Password*</string>
+    <string name="repeat_password_reg">Repeat password*</string>
+    <string name="SignIn">Sign In</string>
+    <string name="SignUp">Sign Up</string>
     <string name="testing_rules">
-        The test consists of 32 drawings selected from the Internet. The task is as follows: view all the drawings in order of their order and quickly decide on each of them how funny you think it is. Drawings should be evaluated on a 5-point scale.\n\nYou can start the test after downloading.\n\n
+        The test consists drawings selected from the Internet. The task is as follows: view all the drawings in order of their order and quickly decide on each of them how funny you think it is. Drawings should be evaluated on a 5-point scale.\n\nYou can start the test after downloading.\n\n
     </string>
+    <string name="emptyField">This field must not be empty</string>
+    <string name="unauthorized">Check the entered data</string>
+    <string name="locked">This user was blocked</string>
+    <string name="authorization_error">An error occurred during authorization, please check the entered data or try again later</string>
+    <string name="gender_not_valid">You must choose your gender</string>
+    <string name="passwords_not_match">Passwords do not match</string>
+    <string name="passwords_length">The password must be more than 8 characters</string>
+    <string name="passwords_symbols">The password must contain large and small Latin letters</string>
+    <string name="passwords_numbers">The password must contain numbers</string>
+    <string name="passwords_sign">The password must contain an @, ! or _</string>
+    <string name="email_not_valid">Email not valid</string>
+    <string name="user_name_not_valid">The username is too short, it must be more than 5 characters</string>
+    <string name="full_name_not_valid">The full name is too short, it must be more than 10 characters</string>
 </resources>

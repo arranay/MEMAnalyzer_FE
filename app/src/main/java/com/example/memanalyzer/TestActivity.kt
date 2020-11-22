@@ -6,8 +6,6 @@ import android.os.SystemClock
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.ProgressBar
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity

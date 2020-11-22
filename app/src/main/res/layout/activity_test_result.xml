@@ -14,7 +14,15 @@
             style="@style/Widget.MEMAnalyzer.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            app:title="@string/app_name" />
+            app:title="@string/app_name">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/logIn"
+                style="@style/Widget.MEMAnalyzer.Button.ImgButton"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200sp"
+                app:icon="@drawable/ic_login_24px" />
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView

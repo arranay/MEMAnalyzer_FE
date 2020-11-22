@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestActivity">
+    tools:context=".AuthorizationActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -20,14 +20,66 @@
 
     <LinearLayout
         android:id="@+id/content"
-        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipChildren="false"
-        android:clipToPadding="false"
         android:orientation="vertical"
-        android:layout_marginTop="56dp"
+        android:padding="24dp"
+        android:gravity="center"
         >
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userName_input"
+            style="@style/Widget.Shrine.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login"
+            app:errorEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            app:errorEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginTop="10sp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sign_up"
+                style="@style/Widget.MEMAnalyzer.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/SignUp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sign_in"
+                style="@style/Widget.MEMAnalyzer.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/SignIn" />
+        </LinearLayout>
 
     </LinearLayout>
 </FrameLayout>

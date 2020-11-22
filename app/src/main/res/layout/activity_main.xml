@@ -21,7 +21,7 @@
                 style="@style/Widget.MEMAnalyzer.Button.ImgButton"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="210sp"
+                android:layout_marginLeft="200sp"
                 app:icon="@drawable/ic_login_24px" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>

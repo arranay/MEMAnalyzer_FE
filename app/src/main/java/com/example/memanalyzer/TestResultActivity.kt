@@ -1,6 +1,5 @@
 package com.example.memanalyzer
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -58,6 +57,11 @@ class TestResultActivity : AppCompatActivity() {
                 }
                 .show()
         }
+
+        logIn.setOnClickListener {
+            val intent = Intent(this, AuthorizationActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun ShowAllCategoryButton() {
@@ -79,7 +83,6 @@ class TestResultActivity : AppCompatActivity() {
         val call: Call<Result> = memesApi.getResult(answers)
 
         call.enqueue(object : Callback<Result> {
-            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Result>, response: Response<Result>) {
                 val testResult = response.body()
                 description.setText(testResult!!.statement)
