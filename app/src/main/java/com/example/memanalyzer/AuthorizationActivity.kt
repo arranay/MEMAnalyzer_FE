@@ -83,11 +83,11 @@ class AuthorizationActivity : AppCompatActivity() {
 
                     editor.commit()
 
-                    showToastr("Welcome to MEMAnalyzer, " + user.userName)
-
                     val intent = Intent(this@AuthorizationActivity, AccountActivity::class.java)
                     startActivity(intent)
                     finish()
+
+                    showToastr("Welcome to MEMAnalyzer, " + user.userName)
                 } else {
                     when (response.code()) {
                         401 -> showToastr(resources.getString(R.string.unauthorized))

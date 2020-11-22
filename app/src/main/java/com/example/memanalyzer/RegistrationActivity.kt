@@ -41,8 +41,8 @@ class RegistrationActivity : AppCompatActivity() {
             checkUserName()
             checkFullName()
 
-            if (fullName_input.isErrorEnabled && userName_input.isErrorEnabled && email_input.isErrorEnabled
-                && date_input.isErrorEnabled && reg_password_input.isErrorEnabled) {
+            if (fullName_input.error == null && userName_input.error == null && email_input.error == null
+                && date_input.error == null && reg_password_input.error == null) {
                 var user: User = User()
                 user.userName = userName.text.toString()
                 user.fullName = fullName.text.toString()
