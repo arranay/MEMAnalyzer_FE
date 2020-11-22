@@ -6,7 +6,6 @@ import android.os.SystemClock
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -77,6 +76,11 @@ class TestActivity : AppCompatActivity() {
                 if (radio_button_4.isChecked) questions[currentQuestion-1].choice = 2
                 if (radio_button_5.isChecked) questions[currentQuestion-1].choice = 1
         }
+
+        start.setOnClickListener {
+            progressBar.setVisibility(View.INVISIBLE)
+            content.setVisibility(View.VISIBLE)
+        }
     }
 
     private fun getAllMems() {
@@ -98,8 +102,8 @@ class TestActivity : AppCompatActivity() {
                 currentQuestion = 1
                 setQuestion()
 
-                progressBar.setVisibility(ProgressBar.INVISIBLE)
-                content.setVisibility(ProgressBar.VISIBLE)
+                loading.setVisibility(View.INVISIBLE)
+                start.setVisibility(View.VISIBLE)
             }
             override fun onFailure(call: Call<List<Img>>, t: Throwable) {
                 Log.v("retrofit", t.message!!)

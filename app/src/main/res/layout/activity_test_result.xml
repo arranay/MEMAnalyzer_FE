@@ -14,7 +14,26 @@
             style="@style/Widget.MEMAnalyzer.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            app:title="@string/app_name" />
+            app:title="@string/app_name">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200sp">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/logIn"
+                    style="@style/Widget.MEMAnalyzer.Button.ImgButton"
+                    android:layout_width="45dp"
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/ic_login_24px" />
+                <com.google.android.material.button.MaterialButton
+                    android:visibility="invisible"
+                    android:id="@+id/go_to_account"
+                    style="@style/Widget.MEMAnalyzer.Button.ImgButton"
+                    android:layout_width="45dp"
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/ic_baseline_account_circle_24" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView

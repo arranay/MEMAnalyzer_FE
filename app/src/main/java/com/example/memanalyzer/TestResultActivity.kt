@@ -1,9 +1,11 @@
 package com.example.memanalyzer
 
-import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.memanalyzer.model.Answers
@@ -12,6 +14,8 @@ import com.example.memanalyzer.service.AllMemesApi
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_test_result.*
 import kotlinx.android.synthetic.main.activity_test_result.exit_button
+import kotlinx.android.synthetic.main.activity_test_result.go_to_account
+import kotlinx.android.synthetic.main.activity_test_result.logIn
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,6 +28,9 @@ class TestResultActivity : AppCompatActivity() {
     lateinit var choice: IntArray
     var answers: ArrayList<Answers> = ArrayList()
 
+    lateinit var sharedPreference: SharedPreferences
+    var token: String = ""
+
     val retrofit: Retrofit? = Retrofit.Builder()
         .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/")
         .addConverterFactory(GsonConverterFactory.create())
@@ -34,6 +41,19 @@ class TestResultActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_result)
+
+        sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        if (sharedPreference.getString("token", "") !== "") {
+            go_to_account.visibility = Button.VISIBLE
+            logIn.visibility = Button.INVISIBLE
+            token = sharedPreference.getString("token", "").toString()
+
+            go_to_account.setOnClickListener {
+                val intent = Intent(this, AccountActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
 
         val arguments = intent.extras
         ids = arguments!!.get("ids") as LongArray
@@ -58,6 +78,11 @@ class TestResultActivity : AppCompatActivity() {
                 }
                 .show()
         }
+
+        logIn.setOnClickListener {
+            val intent = Intent(this, AuthorizationActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun ShowAllCategoryButton() {
@@ -76,10 +101,9 @@ class TestResultActivity : AppCompatActivity() {
 
     fun getResult() {
         val memesApi: AllMemesApi = retrofit!!.create(AllMemesApi::class.java)
-        val call: Call<Result> = memesApi.getResult(answers)
+        val call: Call<Result> = memesApi.getResult(answers, "Bearer $token")
 
         call.enqueue(object : Callback<Result> {
-            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Result>, response: Response<Result>) {
                 val testResult = response.body()
                 description.setText(testResult!!.statement)
@@ -88,6 +112,17 @@ class TestResultActivity : AppCompatActivity() {
                 popularity.setText(round(testResult.popular))
                 meaninglessness.setText(round(testResult.pointless))
                 everyday_life.setText(round(testResult.domestic))
+
+                if (token != "") {
+                    var editor = sharedPreference.edit()
+                    editor.putString("statement", testResult!!.statement)
+                    editor.putFloat("conservative", testResult.conservative)
+                    editor.putFloat("domestic", testResult.domestic)
+                    editor.putFloat("intellectual", testResult.intellectual)
+                    editor.putFloat("pointless", testResult.pointless)
+                    editor.putFloat("popular", testResult.popular)
+                    editor.commit()
+                }
 
                 result.setVisibility(ProgressBar.VISIBLE)
                 progress.setVisibility(ProgressBar.INVISIBLE)
