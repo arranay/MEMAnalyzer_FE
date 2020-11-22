@@ -1,6 +1,7 @@
 package com.example.memanalyzer.model
 
 open class User {
+    lateinit var id: String
     lateinit var userName: String
     lateinit var fullName: String
     lateinit var email: String
@@ -10,4 +11,9 @@ open class User {
     lateinit var token: String
 
     var result: Result? = null
+    lateinit var role: UserRole
+}
+
+enum class UserRole {
+    Administrator, User
 }

@@ -62,9 +62,6 @@
                     android:text="@string/edit"/>
             </LinearLayout>
         </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,21 +74,13 @@
                 android:textColor="?android:attr/textColorPrimary"
                 android:text="@string/full_name"/>
             <TextView
-                android:id="@+id/dateOfBirth"
+                android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textColor="?android:attr/textColorPrimary"
-                android:text="@string/dateOfBirth"/>
-            <TextView
-                android:id="@+id/gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textColor="?android:attr/textColorPrimary"
-                android:text="@string/Gender"/>
+                android:text="@string/email"/>
             </LinearLayout>
-        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -243,12 +232,14 @@
             android:layout_marginTop="20sp">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/users"
+                android:visibility="invisible"
                 style="@style/Widget.MEMAnalyzer.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/all_users"/>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/statistics"
+                android:visibility="invisible"
                 style="@style/Widget.MEMAnalyzer.Button"
                 android:layout_marginLeft="10sp"
                 android:layout_width="wrap_content"

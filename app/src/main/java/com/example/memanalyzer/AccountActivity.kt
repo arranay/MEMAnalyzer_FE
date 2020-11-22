@@ -6,6 +6,8 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import com.example.memanalyzer.model.UserRole
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_account.*
 import kotlinx.android.synthetic.main.activity_account.conservative
@@ -27,6 +29,11 @@ class AccountActivity : AppCompatActivity() {
         setContentView(R.layout.activity_account)
 
         sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+
+        if (sharedPreference.getString("role", "").equals(UserRole.Administrator.toString())) {
+            users.visibility = Button.VISIBLE
+            statistics.visibility = Button.VISIBLE
+        }
 
         setUser()
         setTest()
@@ -50,13 +57,18 @@ class AccountActivity : AppCompatActivity() {
                 }
                 .show()
         }
+
+        users.setOnClickListener {
+            val intent = Intent(this, UsersActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun setUser() {
         name.text = sharedPreference.getString("userName", "")
         fullName.text = sharedPreference.getString("fullName", "")
-        dateOfBirth.text = sharedPreference.getString("dateOfBirth", "")
-        gender.setText(if (sharedPreference.getBoolean("gender", true)) resources.getString(R.string.male) else resources.getString(R.string.female))
+        email.text = sharedPreference.getString("email", "")
     }
 
     fun setTest() {

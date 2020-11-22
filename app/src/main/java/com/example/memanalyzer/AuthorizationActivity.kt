@@ -72,6 +72,7 @@ class AuthorizationActivity : AppCompatActivity() {
                     editor.putString("token",user.token)
                     editor.putString("dateOfBirth",user.dateOfBirth)
                     editor.putBoolean("gender", user.gender)
+                    editor.putString("role", user.role.toString())
 
                     editor.putString("statement", if (user.result !== null) user.result?.statement else "")
                     editor.putFloat("conservative", if (user.result !== null) user.result?.conservative!! else 0f)
