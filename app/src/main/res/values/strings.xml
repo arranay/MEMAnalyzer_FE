@@ -51,7 +51,9 @@
     <string name="emptyField">This field must not be empty</string>
     <string name="unauthorized">Check the entered data</string>
     <string name="locked">This user was blocked</string>
+    <string name="data_not_unique">The login or email address is not unique. You may already be registered</string>
     <string name="authorization_error">An error occurred during authorization, please check the entered data or try again later</string>
+    <string name="registration_error">An error occurred during registration, please check the entered data or try again later</string>
     <string name="gender_not_valid">You must choose your gender</string>
     <string name="passwords_not_match">Passwords do not match</string>
     <string name="passwords_length">The password must be more than 8 characters</string>
@@ -61,4 +63,8 @@
     <string name="email_not_valid">Email not valid</string>
     <string name="user_name_not_valid">The username is too short, it must be more than 5 characters</string>
     <string name="full_name_not_valid">The full name is too short, it must be more than 10 characters</string>
+    <string name="edit">Edit profile</string>
+    <string name="save">Save</string>
+    <string name="start_test">start test</string>
+    <string name="not_test">You do not have any test results yet. Please start the test</string>
 </resources>

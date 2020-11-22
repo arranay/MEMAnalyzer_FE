@@ -42,7 +42,7 @@ class RegistrationActivity : AppCompatActivity() {
                 user.userName = userName.text.toString()
                 user.fullName = fullName.text.toString()
                 user.email = email.text.toString()
-                user.dateOfBirth = "2020-11-22T07:00:38.916Z"
+                user.dateOfBirth = date.text.toString()
                 user.password = reg_password.text.toString()
                 user.gender = male.isChecked
                 registration(user)
@@ -58,7 +58,7 @@ class RegistrationActivity : AppCompatActivity() {
             val day = c.get(Calendar.DAY_OF_MONTH)
 
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                date.setText("$dayOfMonth.$monthOfYear.$year")
+                date.setText("$year-$monthOfYear-$dayOfMonth")
             }, year, month, day)
 
             dpd.show()
@@ -127,9 +127,8 @@ class RegistrationActivity : AppCompatActivity() {
                     finish()
                 } else {
                     when (response.code()) {
-                        401 -> showToastr("")
-                        409 -> showToastr("")
-                        else -> showToastr("")
+                        409 -> showToastr(resources.getString(R.string.data_not_unique))
+                        else -> showToastr(resources.getString(R.string.registration_error))
                     }
                 }
             }

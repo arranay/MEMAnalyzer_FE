@@ -71,14 +71,15 @@ class AuthorizationActivity : AppCompatActivity() {
                     editor.putString("email",user.email)
                     editor.putString("token",user.token)
                     editor.putString("dateOfBirth",user.dateOfBirth)
-                    if (user.result !== null){
-                        editor.putString("", user.result?.statement)
-                        editor.putFloat("", user.result?.conservative!!)
-                        editor.putFloat("", user.result?.domestic!!)
-                        editor.putFloat("", user.result?.intellectual!!)
-                        editor.putFloat("", user.result?.pointless!!)
-                        editor.putFloat("popular", user.result?.popular!!)
-                    }
+                    editor.putBoolean("gender", user.gender)
+
+                    editor.putString("statement", if (user.result !== null) user.result?.statement else "")
+                    editor.putFloat("conservative", if (user.result !== null) user.result?.conservative!! else 0f)
+                    editor.putFloat("domestic", if (user.result !== null) user.result?.domestic!! else 0f)
+                    editor.putFloat("intellectual", if (user.result !== null) user.result?.intellectual!! else 0f)
+                    editor.putFloat("pointless", if (user.result !== null) user.result?.pointless!! else 0f)
+                    editor.putFloat("popular", if (user.result !== null) user.result?.popular!! else 0f)
+
                     editor.commit()
 
                     showToastr("Welcome to MEMAnalyzer, " + user.userName)

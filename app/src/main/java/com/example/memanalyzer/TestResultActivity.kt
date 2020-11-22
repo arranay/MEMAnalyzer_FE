@@ -1,8 +1,11 @@
 package com.example.memanalyzer
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.memanalyzer.model.Answers
@@ -11,6 +14,8 @@ import com.example.memanalyzer.service.AllMemesApi
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_test_result.*
 import kotlinx.android.synthetic.main.activity_test_result.exit_button
+import kotlinx.android.synthetic.main.activity_test_result.go_to_account
+import kotlinx.android.synthetic.main.activity_test_result.logIn
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +28,8 @@ class TestResultActivity : AppCompatActivity() {
     lateinit var choice: IntArray
     var answers: ArrayList<Answers> = ArrayList()
 
+    lateinit var sharedPreference: SharedPreferences
+
     val retrofit: Retrofit? = Retrofit.Builder()
         .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/")
         .addConverterFactory(GsonConverterFactory.create())
@@ -33,6 +40,19 @@ class TestResultActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_result)
+
+        sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        var sh = sharedPreference.getString("token", "")
+        if (sharedPreference.getString("token", "") !== "") {
+            go_to_account.visibility = Button.VISIBLE
+            logIn.visibility = Button.INVISIBLE
+
+            go_to_account.setOnClickListener {
+                val intent = Intent(this, AccountActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
 
         val arguments = intent.extras
         ids = arguments!!.get("ids") as LongArray
