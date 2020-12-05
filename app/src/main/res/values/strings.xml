@@ -31,6 +31,7 @@
     <string name="yes">yes</string>
     <string name="no">no</string>
     <string name="not_answer_all">You did not answer all the questions</string>
+    <string name="successfully_blocked">the user was successfully blocked</string>
     <string name="time_expired">Testing time expired.You can start the test over</string>
     <string name="login">Login</string>
     <string name="login_reg">Login*</string>
@@ -39,6 +40,7 @@
     <string name="dateOfBirth">Date of birth*</string>
     <string name="Gender">Gender*</string>
     <string name="Role">Role*</string>
+    <string name="all_gender">All gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="password">Password</string>
@@ -75,4 +77,7 @@
     <string name="user_not_test">User do not have any test results yet.</string>
     <string name="unlogin">Are you sure you want to exit the account?</string>
     <string name="details">Details</string>
+    <string name="time_range">Time range</string>
+    <string name="start_age">Start age</string>
+    <string name="end_age">End age</string>
 </resources>

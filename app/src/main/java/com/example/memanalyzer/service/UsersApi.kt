@@ -17,4 +17,7 @@ interface UsersApi {
 
     @GET("Users/{userId}")
     fun getUserInfo(@Header("Authorization") token: String?, @Path("userId") userId: String): Call<User>
+
+    @PUT("Users/Block/{userId}")
+    fun block(@Header("Authorization") token: String?, @Path("userId") userId: String): Call<Any>
 }

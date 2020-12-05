@@ -6,7 +6,9 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.View
+import android.widget.Toast
 import com.example.memanalyzer.model.User
 import com.example.memanalyzer.service.UsersApi
 import kotlinx.android.synthetic.main.activity_user_info.*
@@ -33,7 +35,7 @@ class UserInfoActivity : AppCompatActivity() {
     lateinit var sharedPreference: SharedPreferences
 
     val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/")
+        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
@@ -53,6 +55,32 @@ class UserInfoActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        block.setOnClickListener {
+            blockUser()
+        }
+    }
+
+    fun blockUser() {
+        val usersApi: UsersApi = retrofit!!.create(UsersApi::class.java)
+        val call: Call<User> = usersApi.getUserInfo("Bearer " + sharedPreference.getString("token", ""), id)
+
+        call.enqueue(object : Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                block.visibility = View.INVISIBLE
+                showToast()
+            }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Log.v("retrofit", t.message!!)
+            }
+        })
+    }
+
+    fun showToast() {
+        val toast = Toast.makeText(this, this.getString(R.string.successfully_blocked), Toast.LENGTH_SHORT)
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show()
     }
 
     fun setUserInfo() {
@@ -79,7 +107,7 @@ class UserInfoActivity : AppCompatActivity() {
 
                     test.visibility = View.VISIBLE
                 } else {
-                    not_test.text = resources.getString(R.string.not_test)
+                    not_test.text = resources.getString(R.string.user_not_test)
                     not_test.visibility = View.VISIBLE
                 }
 

@@ -63,6 +63,12 @@ class AccountActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        statistics.setOnClickListener {
+            val intent = Intent(this, StatisticsActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun setUser() {

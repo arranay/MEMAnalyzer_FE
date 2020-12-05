@@ -60,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="end">
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/block"
                     style="@style/Widget.MEMAnalyzer.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

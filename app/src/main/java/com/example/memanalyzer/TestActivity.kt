@@ -29,7 +29,7 @@ class TestActivity : AppCompatActivity() {
     var ms = 20000
 
     val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/")
+        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
