@@ -6,7 +6,10 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.View
+import android.widget.Toast
+import com.example.memanalyzer.model.Block
 import com.example.memanalyzer.model.User
 import com.example.memanalyzer.service.UsersApi
 import kotlinx.android.synthetic.main.activity_user_info.*
@@ -26,6 +29,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
 class UserInfoActivity : AppCompatActivity() {
 
@@ -33,7 +37,7 @@ class UserInfoActivity : AppCompatActivity() {
     lateinit var sharedPreference: SharedPreferences
 
     val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/")
+        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
@@ -53,6 +57,36 @@ class UserInfoActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        block.setOnClickListener {
+            blockUser()
+        }
+    }
+
+    fun blockUser() {
+        val usersApi: UsersApi = retrofit!!.create(UsersApi::class.java)
+        val call: Call<Block> = usersApi.block("Bearer " + sharedPreference.getString("token", ""), id)
+
+        call.enqueue(object : Callback<Block> {
+            override fun onResponse(call: Call<Block>, response: Response<Block>) {
+                if (response.code() === 200) {
+                    block.visibility = View.INVISIBLE
+                    dateBlock.visibility = View.VISIBLE
+                    dateBlock.text = response.body()?.date
+                    showToast()
+                }
+            }
+
+            override fun onFailure(call: Call<Block>, t: Throwable) {
+                Log.v("retrofit", t.message!!)
+            }
+        })
+    }
+
+    fun showToast() {
+        val toast = Toast.makeText(this, this.getString(R.string.successfully_blocked), Toast.LENGTH_SHORT)
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show()
     }
 
     fun setUserInfo() {
@@ -79,9 +113,19 @@ class UserInfoActivity : AppCompatActivity() {
 
                     test.visibility = View.VISIBLE
                 } else {
-                    not_test.text = resources.getString(R.string.not_test)
+                    not_test.text = resources.getString(R.string.user_not_test)
                     not_test.visibility = View.VISIBLE
                 }
+
+                if (user.isLocked!!) {
+                    block.visibility = View.INVISIBLE
+                    dateBlock.visibility = View.VISIBLE
+                    dateBlock.text = user.lockoutEnd
+                } else {
+                    block.visibility = View.VISIBLE
+                    dateBlock.visibility = View.INVISIBLE
+                }
+
 
                 user_info.visibility = View.VISIBLE
                 progress.visibility = View.INVISIBLE

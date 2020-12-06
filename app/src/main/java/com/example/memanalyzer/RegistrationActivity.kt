@@ -24,7 +24,7 @@ class RegistrationActivity : AppCompatActivity() {
 
     lateinit var sharedPreference: SharedPreferences
     val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/")
+        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

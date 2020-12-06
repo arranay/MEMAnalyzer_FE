@@ -63,6 +63,18 @@ class AccountActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        statistics.setOnClickListener {
+            val intent = Intent(this, StatisticsActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        edit_profile.setOnClickListener {
+            val intent = Intent(this, EditProfileActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun setUser() {

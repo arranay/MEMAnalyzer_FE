@@ -164,7 +164,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/exit_button"
-                    style="@style/Widget.MEMAnalyzer.Button.TextButton"
+                    style="@style/Widget.MEMAnalyzer.Button.FloatingActionButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="12dp"
@@ -198,12 +198,13 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/all_category_button"
-                    style="@style/Widget.MEMAnalyzer.Button.TextButton"
+                    style="@style/Widget.MEMAnalyzer.Button.FloatingActionButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="12dp"
                     android:layout_marginRight="12dp"
                     app:icon="@drawable/ic_sharp_arrow_downward_24"
+                    app:iconTint="@color/colorPrimary"
                     android:text="@string/description_of_all_categories" />
 
             </LinearLayout>

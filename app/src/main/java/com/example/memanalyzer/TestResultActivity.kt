@@ -32,7 +32,7 @@ class TestResultActivity : AppCompatActivity() {
     var token: String = ""
 
     val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzerbackend.azurewebsites.net/api/")
+        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

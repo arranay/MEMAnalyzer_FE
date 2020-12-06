@@ -38,13 +38,42 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_marginTop="66sp"
-            android:paddingLeft="10sp">
+            android:paddingLeft="10sp"
+            android:paddingRight="10sp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textColor="@color/textColorPrimary"
                 android:text="@string/users"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Shrine.TextInputLayout"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:hint="@string/enter">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/textForSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_search"
+                    style="@style/Widget.MEMAnalyzer.Button.FloatingActionButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
+                    android:text="@string/button_search" />
+            </LinearLayout>
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

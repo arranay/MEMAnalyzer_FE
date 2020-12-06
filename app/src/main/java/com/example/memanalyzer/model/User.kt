@@ -12,6 +12,9 @@ open class User {
 
     var result: Result? = null
     lateinit var role: UserRole
+
+    var lockoutEnd: String? = null
+    var isLocked: Boolean? = null
 }
 
 enum class UserRole {
