@@ -47,4 +47,5 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.5.0"
     implementation "org.jetbrains.anko:anko-design:0.10.5"
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.jjoe64:graphview:4.2.2'
 }

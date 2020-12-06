@@ -9,11 +9,11 @@ class Statistics {
     var negationNumber: Number = 0
     var unpretentiousnessNumber: Number = 0
     var all: Number = 0
-    var domesticPersentage: Float = 0f
-    var popularPersentage: Float = 0f
-    var pointlessPersentage: Float = 0f
-    var intellectualPersentage: Float = 0f
-    var conservativePersentage: Float = 0f
-    var negationPersentage: Float = 0f
-    var unpretentiousnessPersentage: Float = 0f
+    var domesticPersentage: Double = 0.0
+    var popularPersentage: Double = 0.0
+    var pointlessPersentage: Double = 0.0
+    var intellectualPersentage: Double = 0.0
+    var conservativePersentage: Double = 0.0
+    var negationPersentage: Double = 0.0
+    var unpretentiousnessPersentage: Double = 0.0
 }

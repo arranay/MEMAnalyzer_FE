@@ -30,22 +30,166 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center"
         android:layout_marginTop="66sp"
         android:paddingLeft="20sp"
         android:paddingRight="20sp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:gravity="center"
             android:textColor="@color/textColorPrimary"
             android:text="@string/statistics"/>
+        <com.jjoe64.graphview.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="300sp"
+            android:id="@+id/graph"
+            android:layout_marginBottom="10sp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/colorDom"
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:layout_marginBottom="5sp"
+                        android:gravity="center"
+                        android:background="@color/colorAccent"/>
+                    <TextView
+                        android:id="@+id/colorPop"
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:layout_marginBottom="5sp"
+                        android:gravity="center"
+                        android:background="@color/colorAccent"/>
+                    <TextView
+                        android:id="@+id/colorMeans"
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:layout_marginBottom="5sp"
+                        android:gravity="center"
+                        android:background="@color/colorAccent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="10sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5sp"
+                    android:gravity="center"
+                    android:text="@string/category_everyday_life"
+                    android:textColor="@color/textColorPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5sp"
+                    android:gravity="center"
+                    android:text="@string/category_popularity"
+                    android:textColor="@color/textColorPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5sp"
+                    android:gravity="center"
+                    android:text="@string/category_pointless"
+                    android:textColor="@color/textColorPrimary" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/colorIntel"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="5sp"
+                    android:background="@color/colorAccent"/>
+                <TextView
+                    android:id="@+id/colorConserv"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:layout_marginBottom="5sp"
+                    android:gravity="center"
+                    android:background="@color/colorAccent"/>
+                <TextView
+                    android:id="@+id/colorNeg"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:layout_marginBottom="5sp"
+                    android:gravity="center"
+                    android:background="@color/colorAccent"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="5sp"
+                    android:text="@string/category_intelligence"
+                    android:textColor="@color/textColorPrimary" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="5sp"
+                    android:textColor="@color/textColorPrimary"
+                    android:text="@string/category_conservative"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="5sp"
+                    android:textColor="@color/textColorPrimary"
+                    android:text="@string/category_negation"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/colorUnp"
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="5sp"
+                    android:background="@color/colorAccent"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="5sp"
+                    android:textColor="@color/textColorPrimary"
+                    android:text="@string/category_unpretentiousness"/>
+            </LinearLayout>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +203,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="10sp"
                     android:gravity="center"
                     >
                     <com.google.android.material.radiobutton.MaterialRadioButton
@@ -94,6 +237,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColorHint="@color/textColorPrimary"
+                    android:gravity="center"
                     android:hint="@string/time_range"
                     android:orientation="horizontal">
                     <AutoCompleteTextView
@@ -106,42 +250,64 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20sp"
-                android:gravity="center">
+                android:layout_height="match_parent"
+                android:layout_marginTop="10sp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="150sp"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/textColorPrimary"
                     android:hint="@string/start_age"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:textColorHint="@color/textColorPrimary">
+
                     <AutoCompleteTextView
                         android:id="@+id/startAge"
                         android:layout_width="match_parent"
                         android:layout_height="50sp"
-                        android:inputType="none"/>
+                        android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="150sp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30sp"
-                    android:textColorHint="@color/textColorPrimary"
                     android:hint="@string/end_age"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:textColorHint="@color/textColorPrimary">
                     <AutoCompleteTextView
                         android:id="@+id/endAge"
                         android:layout_width="match_parent"
                         android:layout_height="50sp"
-                        android:inputType="none"/>
+                        android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="10sp">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/get_statistics"
+                    style="@style/Widget.MEMAnalyzer.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_get" />
+            </LinearLayout>
         </LinearLayout>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ScrollView>
     </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/loadingStatistics"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:layout_marginTop="86sp"
+        android:padding="100sp">
+        <ProgressBar
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
 </FrameLayout>
