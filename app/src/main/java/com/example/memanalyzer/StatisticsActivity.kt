@@ -62,7 +62,6 @@ class StatisticsActivity : AppCompatActivity() {
         }
 
         get_statistics.setOnClickListener {
-            graph.removeAllSeries()
             loadingStatistics.visibility = View.VISIBLE
             getStatistics()
         }
@@ -79,12 +78,13 @@ class StatisticsActivity : AppCompatActivity() {
                     buildGraf(body!!.domesticPersentage, body.popularPersentage, body.pointlessPersentage,
                         body.intellectualPersentage, body.conservativePersentage, body.negationPersentage, body.unpretentiousnessPersentage)
                 } else {
-                    showToastr(resources.getString(R.string.statistics_msg))
+                    showToastr(resources.getString(R.string.no_data_msg))
                     loadingStatistics.visibility = View.INVISIBLE
                 }
             }
 
             override fun onFailure(call: Call<Statistics>, t: Throwable) {
+                showToastr(resources.getString(R.string.statistics_msg))
                 Log.v("retrofit", t.message!!)
             }
         })
@@ -154,6 +154,7 @@ class StatisticsActivity : AppCompatActivity() {
         colorUnp.setBackgroundColor(COLOR.get(6))
 
         series.isAnimated = true
+        graph.removeAllSeries()
         graph.addSeries(series)
         graph.getViewport().setMinY(0.0)
 

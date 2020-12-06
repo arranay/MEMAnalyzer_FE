@@ -1,5 +1,6 @@
 package com.example.memanalyzer.service
 
+import com.example.memanalyzer.model.Block
 import com.example.memanalyzer.model.User
 import com.example.memanalyzer.model.UserLogin
 import retrofit2.Call
@@ -13,11 +14,11 @@ interface UsersApi {
     fun registration(@Body user: User): Call<User>
 
     @GET("Users")
-    fun getAllUsers(@Header("Authorization") token: String?): Call<List<User>>
+    fun getAllUsers(@Header("Authorization") token: String?, @Query("search") search: String?): Call<List<User>>
 
     @GET("Users/{userId}")
     fun getUserInfo(@Header("Authorization") token: String?, @Path("userId") userId: String): Call<User>
 
     @PUT("Users/Block/{userId}")
-    fun block(@Header("Authorization") token: String?, @Path("userId") userId: String): Call<Any>
+    fun block(@Header("Authorization") token: String?, @Path("userId") userId: String): Call<Block>
 }

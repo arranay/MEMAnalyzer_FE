@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.Toast
+import com.example.memanalyzer.model.Block
 import com.example.memanalyzer.model.User
 import com.example.memanalyzer.service.UsersApi
 import kotlinx.android.synthetic.main.activity_user_info.*
@@ -64,16 +65,19 @@ class UserInfoActivity : AppCompatActivity() {
 
     fun blockUser() {
         val usersApi: UsersApi = retrofit!!.create(UsersApi::class.java)
-        val call: Call<Any> = usersApi.block("Bearer " + sharedPreference.getString("token", ""), id)
+        val call: Call<Block> = usersApi.block("Bearer " + sharedPreference.getString("token", ""), id)
 
-        call.enqueue(object : Callback<Any> {
-            override fun onResponse(call: Call<Any>, response: Response<Any>) {
-                block.visibility = View.INVISIBLE
-                dateBlock.visibility = View.VISIBLE
-                showToast()
+        call.enqueue(object : Callback<Block> {
+            override fun onResponse(call: Call<Block>, response: Response<Block>) {
+                if (response.code() === 200) {
+                    block.visibility = View.INVISIBLE
+                    dateBlock.visibility = View.VISIBLE
+                    dateBlock.text = response.body()?.date
+                    showToast()
+                }
             }
 
-            override fun onFailure(call: Call<Any>, t: Throwable) {
+            override fun onFailure(call: Call<Block>, t: Throwable) {
                 Log.v("retrofit", t.message!!)
             }
         })

@@ -29,6 +29,7 @@ class UsersActivity : AppCompatActivity() {
 
     lateinit var users: List<User>
     lateinit var sharedPreference: SharedPreferences
+    var search = ""
 
     val retrofit: Retrofit? = Retrofit.Builder()
         .baseUrl("https://memanalyzer.azurewebsites.net/api/")
@@ -48,11 +49,16 @@ class UsersActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        button_search.setOnClickListener {
+            search = textForSearch.text.toString()
+            getUsers()
+        }
     }
 
     fun getUsers() {
         val usersApi: UsersApi = retrofit!!.create(UsersApi::class.java)
-        val call: Call<List<User>> = usersApi.getAllUsers("Bearer " + sharedPreference.getString("token", ""))
+        val call: Call<List<User>> = usersApi.getAllUsers("Bearer " + sharedPreference.getString("token", ""), search)
 
         call.enqueue(object : Callback<List<User>> {
             override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
