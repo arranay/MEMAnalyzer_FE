@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import com.example.memanalyzer.environment.RetrofitObject
 import com.example.memanalyzer.model.Answers
 import com.example.memanalyzer.model.Result
 import com.example.memanalyzer.service.AllMemesApi
@@ -31,10 +32,7 @@ class TestResultActivity : AppCompatActivity() {
     lateinit var sharedPreference: SharedPreferences
     var token: String = ""
 
-    val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val retrofit = RetrofitObject.retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()

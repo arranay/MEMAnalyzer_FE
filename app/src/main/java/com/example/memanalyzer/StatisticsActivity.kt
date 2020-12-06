@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.memanalyzer.environment.RetrofitObject
 import com.example.memanalyzer.model.Statistics
 import com.example.memanalyzer.service.StatisticsApi
 import com.jjoe64.graphview.ValueDependentColor
@@ -39,10 +40,7 @@ class StatisticsActivity : AppCompatActivity() {
     var endAgeParam: Int? = null
     var lastDaysParam: Int? = null
 
-    val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val retrofit= RetrofitObject.retrofit
 
     lateinit var sharedPreference: SharedPreferences
 

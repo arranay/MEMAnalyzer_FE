@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat.startActivities
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.memanalyzer.environment.RetrofitObject
 import com.example.memanalyzer.model.User
 import com.example.memanalyzer.service.UsersApi
 import kotlinx.android.synthetic.main.activity_users.*
@@ -31,10 +32,7 @@ class UsersActivity : AppCompatActivity() {
     lateinit var sharedPreference: SharedPreferences
     var search = ""
 
-    val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val retrofit = RetrofitObject.retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
