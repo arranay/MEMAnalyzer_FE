@@ -60,11 +60,24 @@
                 android:layout_height="wrap_content"
                 android:gravity="end">
                 <com.google.android.material.button.MaterialButton
+                    android:visibility="invisible"
                     android:id="@+id/block"
                     style="@style/Widget.MEMAnalyzer.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/block"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+                <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/dateBlock"
+                    android:layout_width="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/textColorPrimary"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </RelativeLayout>
 
