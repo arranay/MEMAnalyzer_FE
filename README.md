@@ -16,7 +16,7 @@ Use Android Studio to build and run the project
 Clone the repository to your computer
 
 ```sh
-git clone https://github.com/arranay/MEMAnalyzer_FE
+git clone https://github.com/arranay/MEMAnalyzer_FE .
 ```
 
 Open the cloned project in AndroidStudio and open the file java/com/example/memanalyzer/environment/RetrofitObject.kt
