@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.memanalyzer.environment.RetrofitObject
 import com.example.memanalyzer.model.User
 import com.example.memanalyzer.service.UsersApi
 import kotlinx.android.synthetic.main.activity_registration.*
@@ -23,10 +24,7 @@ import java.util.*
 class RegistrationActivity : AppCompatActivity() {
 
     lateinit var sharedPreference: SharedPreferences
-    val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val retrofit = RetrofitObject.retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

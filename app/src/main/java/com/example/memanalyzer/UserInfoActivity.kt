@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.Toast
+import com.example.memanalyzer.environment.RetrofitObject
 import com.example.memanalyzer.model.Block
 import com.example.memanalyzer.model.User
 import com.example.memanalyzer.service.UsersApi
@@ -36,10 +37,7 @@ class UserInfoActivity : AppCompatActivity() {
     var id: String = ""
     lateinit var sharedPreference: SharedPreferences
 
-    val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val retrofit = RetrofitObject.retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

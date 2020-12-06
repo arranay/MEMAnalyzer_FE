@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.memanalyzer.environment.RetrofitObject
 import com.example.memanalyzer.model.Img
 import com.example.memanalyzer.model.Question
 import com.example.memanalyzer.service.AllMemesApi
@@ -28,10 +29,7 @@ class TestActivity : AppCompatActivity() {
     var questions: ArrayList<Question> = ArrayList()
     var ms = 20000
 
-    val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val retrofit = RetrofitObject.retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()

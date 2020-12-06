@@ -11,22 +11,18 @@ import kotlinx.android.synthetic.main.activity_authorization.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import android.content.Intent
 import android.content.SharedPreferences
 import android.view.Gravity
 import android.widget.Toast
+import com.example.memanalyzer.environment.RetrofitObject
 
 @Suppress("SENSELESS_COMPARISON")
 class AuthorizationActivity : AppCompatActivity() {
 
     lateinit var sharedPreference: SharedPreferences
 
-    val retrofit: Retrofit? = Retrofit.Builder()
-        .baseUrl("https://memanalyzer.azurewebsites.net/api/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val retrofit = RetrofitObject.retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
