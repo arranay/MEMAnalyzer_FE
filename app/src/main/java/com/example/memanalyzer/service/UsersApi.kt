@@ -21,4 +21,7 @@ interface UsersApi {
 
     @PUT("Users/Block/{userId}")
     fun block(@Header("Authorization") token: String?, @Path("userId") userId: String): Call<Block>
+
+    @PUT("Users/Profile")
+    fun editUser(@Header("Authorization") token: String?, @Body user: User): Call<Any>
 }
